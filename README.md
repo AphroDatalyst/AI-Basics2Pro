@@ -1,2 +1,2 @@
-# Pyhton
+# Python
 fluent python and more
