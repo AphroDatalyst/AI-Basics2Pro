@@ -9,15 +9,15 @@ Deep learning training involves many hyperparameters, and some of them might see
 1. Batch Size:
 Refers to the number of training examples used to compute a single update of the model weights.
 In the context of Batch Gradient Descent (the traditional form), the batch size is equal to the total number of samples in the training dataset. This means the model weights are updated once per epoch after calculating the loss on the entire training dataset.
-Benefits: The direction of the gradient step is based on the entire dataset, which can provide a more accurate estimate.
-Drawbacks: It can be computationally expensive and might not fit in memory for large datasets. Additionally, it may not escape local minima as effectively as other methods.
+* Benefits: The direction of the gradient step is based on the entire dataset, which can provide a more accurate estimate.
+* Drawbacks: It can be computationally expensive and might not fit in memory for large datasets. Additionally, it may not escape local minima as effectively as other methods.
 2. Mini-batch Size:
 Refers to a subset of the training dataset.
 When the dataset is divided into smaller batches and each of these batches is used to compute and update the model weights, the training algorithm is termed Mini-batch Gradient Descent or, often, just "Batch Gradient Descent."
-Benefits: It can lead to faster convergence, can fit in memory even for large datasets, and might escape local minima due to the noise in the gradient estimation.
-Drawbacks: The direction of the gradient step is based on a subset of the dataset, which can introduce noise, leading to less stable convergence.
+* Benefits: It can lead to faster convergence, can fit in memory even for large datasets, and might escape local minima due to the noise in the gradient estimation.
+* Drawbacks: The direction of the gradient step is based on a subset of the dataset, which can introduce noise, leading to less stable convergence.
 * Note:
-Stochastic Gradient Descent (SGD): It's worth noting another variation where each single training example is used to compute the gradient and update the weights. In this case, the "batch size" is 1. It's known for its high variance in updates, which can lead to faster convergence but also more oscillation in the learning process.
+`Stochastic Gradient Descent (SGD):` training example is used to compute the gradient and update the weights. In this case, the "batch size" is 1. It's known for its high variance in updates, which can lead to faster convergence but also more oscillation in the learning process.
 
 
 
