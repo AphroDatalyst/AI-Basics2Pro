@@ -1,9 +1,9 @@
 Deep learning training involves many hyperparameters, and some of them might seem similar or interconnected but serve different purposes. Here are a few hyperparameters and concepts that sometimes get confused:
 
 ### 1. **Batch Size vs Mini-batch Size**:
-- **Batch Size**: Refers to the number of training examples utilized in one iteration. In the context of deep learning and when using the entire dataset at once, it's called "batch gradient descent."
+- **Batch Size**: Refers to the number of training examples utilized in one iteration. In the context of deep learning and when using the entire dataset at once, it's called `"batch gradient descent."`
   
-- **Mini-batch Size**: In practice, using the entire dataset can be computationally expensive, so the dataset is divided into smaller batches called "mini-batches." When using mini-batches, the training algorithm is often termed "mini-batch gradient descent" or just "batch gradient descent."
+- **Mini-batch Size**: In practice, using the entire dataset can be computationally expensive, so the dataset is divided into smaller batches called "mini-batches." When using mini-batches, the training algorithm is often termed `"mini-batch gradient descent"` or just "batch gradient descent."
 
 
 1. Batch Size:
@@ -44,3 +44,56 @@ When the dataset is divided into smaller batches and each of these batches is us
 - **Patience**: Often used in conjunction with early stopping. It's the number of epochs to wait before stopping once the validation performance starts degrading. It ensures that training isn't stopped just due to minor fluctuations in validation metrics.
 
 These are just a few examples. The deep learning field is vast, with many techniques and hyperparameters, each designed to address specific challenges or enhance model performance.
+
+
+
+
+## Main types of Gradient Descent:
+
+1. Batch Gradient Descent:
+How it works: Uses the entire dataset to compute the gradient of the cost function for each iteration of the training algorithm.
+
+* Pros: Stable convergence: The gradient computed is accurate since it uses all samples.
+Straightforward to implement.
+* Cons: Can be computationally expensive with large datasets as you need to process the whole dataset for a single update.
+Might not fit in memory for very large datasets.
+
+2. Stochastic Gradient Descent (SGD):
+How it works: Uses only a single data point (randomly picked) to compute the gradient at each step.
+
+* Pros: Can converge faster as it updates weights more frequently.
+The inherent noise can help escape local minima for non-convex loss functions.
+Suitable for large datasets.
+* Cons: Can have a lot of variance in the updates, leading to a less stable convergence. The model might "bounce around" the optimal solution.
+The learning rate often needs to be decreased gradually to ensure convergence.
+
+3. Mini-batch Gradient Descent:
+How it works: A compromise between Batch GD and SGD. Uses a mini-batch of n training examples (where n is much less than the total dataset but more than 1) to compute the gradient at each step.
+
+* Pros: Can benefit from hardware optimizations (like matrix operations on GPUs).
+Typically converges faster than Batch GD because of more frequent updates.
+Less noisy than SGD, leading to more stable convergence.
+* Cons: The choice of mini-batch size can affect performance and convergence.
+Still might get stuck in shallow local minima (though less likely than with Batch GD).
+
+4. Variations & Optimizations:
+Several optimization algorithms build upon the basic gradient descent to ensure faster convergence, stability, or escape from local minima:
+
+* Momentum: Considers the past gradient to smooth out updates.
+* Nesterov Accelerated Gradient (NAG): A smarter version of momentum.
+* Adagrad: Adapts the learning rates based on the parameters, favoring infrequent parameters.
+* RMSprop: Adjusts the Adagrad method to reduce its aggressive, monotonically decreasing learning rate.
+* Adam (Adaptive Moment Estimation): Combines ideas from Momentum and RMSprop.
+* Adadelta: An extension of Adagrad that reduces its aggressive learning rate.
+* Nadam: Adam with Nesterov momentum.
+
+Each of these optimizers modifies the vanilla gradient descent approach to tackle its shortcomings or improve upon its strengths.
+
+### Visual Representation:
+Imagine standing on a mountain and trying to find your way down in the fog.
+
+* With Batch Gradient Descent, you'll get a detailed map of the entire mountain range and plan your route to the bottom. But you'll only move once you've studied the whole map.
+
+* With Stochastic Gradient Descent, you'll just look under your feet, decide on the next step based on the terrain immediately around you, and take that step. You'll keep doing this until you reach a flat area.
+
+* With Mini-batch Gradient Descent, you'll use a flashlight to illuminate a small area around you (not just under your feet but not the whole mountain). You'll plan your path based on this illuminated area and take several steps before reassessing.
