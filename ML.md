@@ -146,11 +146,7 @@ Learning Rate: It's a hyperparameter that determines the step size at each itera
 
 ## Patience in Deep Learning
 
-#### Overview:
-
 In the world of deep learning, patience is a crucial concept associated with the training phase, especially when utilizing algorithms that involve early stopping.
-
-#### What is "Patience"?
 
 - **Definition**: Patience is a hyperparameter used in conjunction with early stopping to determine how many epochs training should continue after a monitored metric has stopped improving.
 Why is it Important?
