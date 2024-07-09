@@ -1,2 +1,1 @@
-# Python
-fluent python and more
+# fluent python and more
