@@ -5,6 +5,7 @@ __pycache__/
 
 #custom
 ML.md
+MachineLearning
 
 # C extensions
 *.so
