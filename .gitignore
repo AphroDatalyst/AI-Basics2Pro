@@ -5,6 +5,7 @@ __pycache__/
 
 #custom
 .venv
+*.JPG
 
 # C extensions
 *.so
